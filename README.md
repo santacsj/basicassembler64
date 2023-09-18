@@ -188,3 +188,17 @@ Mnemonics of supported instructions can be found in the BASIC program's DATA lin
 13 	jmp (expr)	indirect
 ```
 
+### Error Codes
+
+The Assembler will stop on errors and print the affected line and one of the following error codes.
+```
+1 	No * found at the start of the file
+2 	Unknown mnemonic
+3 	Unknown addressing mode
+4 	No such addressing mode for mnemonic
+5 	Symbol does not exists
+6 	Symbol already exists
+7 	Branch out of range
+```
+
+
