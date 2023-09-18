@@ -71,12 +71,12 @@ MAIN.A
 *=828
 @chrout=$ffd2
 @main
-lda #$30
-ldx #3
+lda#$30
+ldx#3
 @m0repeatc02
-jsr @chrout
+jsr@chrout
 dex
-bne @m0repeatc02
+bne@m0repeatc02
 rts
 .
 ```
