@@ -48,7 +48,7 @@ KERNAL.S
 ;
 @chrout=$ffd2 ;kernal chrout addr
 
-!defm repeatc
+!defm repeat
 lda ?0
 ldx #?1
 ?2
@@ -65,7 +65,7 @@ MAIN.S
 !incl kernal
 
 @main
-!repeatc @txt.3.
+!repeat @txt.3.
 rts
 
 @txt
