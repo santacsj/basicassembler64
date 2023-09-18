@@ -42,6 +42,41 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : assembler file, a SEQ file contaning Assembler syntax, with all macros expanded and all comments/whitespaces eliminiated
 
 ### Example
+KERNAL.S
 ```
+; kernal.s
+;
+@chrout=$ffd2 ;kernal chrout addr
 
+!defm repeatc
+lda ?0
+ldx #?1
+?2
+jsr @chrout
+dex
+bne ?2
+!end
+```
+MAIN.S
+```
+*=828
+!incl kernal
+
+@main
+!repeatc #$30 3
+rts
+```
+MAIN.A
+```
+*=828
+@chrout=$ffd2
+@main
+lda #$30
+ldx #3
+@m0repeatc02
+jsr @chrout
+dex
+bne @m0repeatc02
+rts
+.
 ```
