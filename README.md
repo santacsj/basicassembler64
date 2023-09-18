@@ -247,7 +247,7 @@ TXA 8A,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,
 TXS 9A,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
 TYA 98,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
 USB   ,   , EB,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
-XAA   ,   , AB,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
+XAA   ,   , AB,   ,   ,   ,   ,   ,   ,   ,   ,   ,    
 ```
 
 The following 13 addressing modes are supported, examples show the actual syntax: 
