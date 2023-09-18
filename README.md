@@ -221,7 +221,7 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 ### Commands
 
 `l <device>`
-: load SEQ file from device, device will be 8 if not provided
+: load SEQ file from device, device will be 8 if not provided, can not load if there is text in memory, use `n`
 
 `s <device>`
 : save to a SEQ on device, device will be 8 if not provided
@@ -235,20 +235,20 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 `e <line number>`
 : edit line at line number, last line if not provided, trims lines to max 35 chars
 
-`$`
+`$ <line number>`
 : append petscii char to end of existing line
 
-`+`
+`+ <line number>`
 : append string to end of existing line
 
 `m n+/-(n)`
-: mark lines, n+ from n to eof, n- from sof to n, n+5 from n, mark 5 lines, inclusive, unmarkes marked lines if not provided
+: mark lines, n+ from n to eof, n- from sof to n, n+5 from n, mark 5 lines, n-5 marks n and 4 lines above it, inclusive, unmarks marked lines if not provided
 
 `d <line number>`
 : delete line at line number, last line if not provided, delete marked lines if marked
 
 `c <line number>`
-: copy marked text to line number (above, if exists), if no line number, append to end of text
+: copy marked lines to line number (above, if exists), if no line number, append to end of text
 
 `n`
 : new, clear memory
