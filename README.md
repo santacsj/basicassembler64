@@ -187,6 +187,7 @@ Mnemonics of supported instructions can be found in the BASIC program's DATA lin
 12 	lda expr.y	absolute indexed y
 13 	jmp (expr)	indirect
 ```
+Note: for LSR,ASL,ROR and ROL instructions both accumulator and implied modes are supported and compile to the same opcode.
 
 ### Error Codes
 
