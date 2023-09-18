@@ -255,3 +255,5 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 
 `?`
 : print status, free BASIC bytes, number of lines, does GC so might take a while
+
+Note: Empty command repeats the last command, if there was one.
