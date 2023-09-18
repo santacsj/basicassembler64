@@ -146,6 +146,9 @@ In assembler instructions a rudimentary expression language is supported.
 `>`, `<`
 : hi/lo byte, can preceed any of the above, has the lowest precedence
 
+`expr`
+: an expression is any combination of the above
+
 **Assembler Instructions**
 
 Assembler instructions can be pseudo instructions or assembly language instructions.
@@ -153,7 +156,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 *Pseudo Instructions*
 
 `.bl n`
-: a block of n zero bytes, can also be used to leave out space in disk/memory
+: a block of n number of zero bytes, can also be used to leave out space in disk
 
 `.ii ""`
 : place petscii code of chars inside the quotation marks to disk
@@ -161,6 +164,27 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 `.sc ""`
 : place screen display code of chars inside the quotation marks to disk
 
-'.by expr. ... expr.'
-	place lo byte of the values of dot separated expressions to disk
+`.by expr. ... expr.`
+: place lo byte of the values of dot separated expressions to disk
 
+*Assembly Instructions*
+
+List of supported mnemonics can be found near to the end of the BASIC program.
+
+```
+1 	clc 		implied
+2 	lsa a 		accumulator
+3 	lda #expr 	immediate
+4 	beq expr        relative
+
+5 	lda *expr 	zero-page absolute
+6 	lda *expr.x 	zero-page indexed x
+7 	ldx *expr.y 	zero-page indexed y
+8 	lda *(expr.x)   zero-page indexed indirect
+9 	lda *(expr).y   zero-page indirect indexed
+
+10 	lda expr 	absolute
+11 	lda expr.x	absolute indexed x
+12 	lda expr.y	absolute indexed y
+13 	jmp (expr)	indirect
+```
