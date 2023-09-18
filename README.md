@@ -171,7 +171,14 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 Mnemonics of supported instructions:
 ```
-ADC, AHX, ALR, ANA, ANB, ANC, AND, ARR, ASL, AXS, BCC, BCS, BEQ, BIT, BMI, BNE, BPL, BRK, BVC, BVS, CLC, CLD, CLI, CLV, CMP, CPX, CPY, DCP, DEC, DEX, DEY, EOR, INC, INX, INY, ISC, JMP, JSR, LAS, LAX, LDA, LDX, LDY, LSR, NOP, ORA, PHA, PHP, PLA, PLP, RLA, ROL, ROR, RRA, RTI, RTS, SAX, SBC, SEC, SED, SEI, SHX, SHY, SLO, SRE, STA, STX, STY, TAS, TAX, TAY, TSX, TXA, TXS, TYA, USB, XAA
+ADC, AHX, ALR, ANA, ANB, ANC, AND, ARR, ASL, AXS,
+BCC, BCS, BEQ, BIT, BMI, BNE, BPL, BRK, BVC, BVS,
+CLC, CLD, CLI, CLV, CMP, CPX, CPY, DCP, DEC, DEX,
+DEY, EOR, INC, INX, INY, ISC, JMP, JSR, LAS, LAX,
+LDA, LDX, LDY, LSR, NOP, ORA, PHA, PHP, PLA, PLP,
+RLA, ROL, ROR, RRA, RTI, RTS, SAX, SBC, SEC, SED,
+SEI, SHX, SHY, SLO, SRE, STA, STX, STY, TAS, TAX,
+TAY, TSX, TXA, TXS, TYA, USB, XAA
 ```
 
 The following 13 addressing modes are supported, examples show the actual syntax: 
