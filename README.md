@@ -74,7 +74,7 @@ MAIN.A
 *=828
 @chrout=$ffd2
 @main
-lda#$30
+lda@txt
 ldx#3
 @m0repeatc02
 jsr@chrout
