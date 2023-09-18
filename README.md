@@ -236,7 +236,7 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 : edit line at line number, last line if not provided, trims lines to max 35 chars
 
 `$ <line number>`
-: append petscii char to end of existing line
+: append char by petscii code to end of existing line
 
 `+ <line number>`
 : append string to end of existing line
