@@ -55,7 +55,7 @@ ldx #?1
 jsr @chrout
 dex
 bne ?2
-!end
+!endm
 ```
 MAIN.S
 ```
