@@ -87,3 +87,36 @@ rts
 .ii"A "
 .
 ```
+
+## The Assenbler
+
+The Assembler assembles an already prepared assembler file to a .PRG file on disk. It is a 2 pass symbolic assembler. It supports 77 assembly language instructions (legal and illegal, except for JAM), 13 addressing modes, 4 pseudo instructions, rudimentary expressions and number input in decimal or hexadecimal.
+
+The preserve as much memory as possible for the symbols, only the symbol, mnemonic and opcode tables are stored in memory. Assembled machine code is written immediately to disk.
+
+### Usage
+`LOAD "BAS64.ASS??",8:RUN`, where ?? is the latest version number
+
+### Input
+`.A`
+: assembler file, a SEQ file contaning text in Assembler syntax
+
+### Syntax
+
+`n(nnnn)`
+: a decimal number
+
+`$n(nnn)`
+: a hexadecimal number
+
+`n`
+: a number, decimal or hexadecimal
+
+`*=n`
+: assign PC start value, an .A file should start with this
+
+`.`
+: end of an assembler file, all .A files should terminate with this
+
+
+
