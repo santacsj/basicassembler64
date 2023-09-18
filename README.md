@@ -15,7 +15,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 
 ### Input
 `.S`
-: source file, a SEQ file contaning text in Reader and Assembler syntax, e.g. `RASTERBAR.S`
+: source file, a SEQ file contaning text in Reader syntax, e.g. `RASTERBAR.S`
 
 ### Syntax
 
