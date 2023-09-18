@@ -209,7 +209,7 @@ The Assembler will stop on errors and print the affected line number and one of 
 ### Hints
 
 - Since no * assignment is supported, the .BL pseudo instruction can be used to leave out bytes between instructions
-- The comma and other separator characters that the BASIC INPUT# instruction recognises should not be used, not in the source code, not in quoted string. Use the .BY pseudo intruction to store it in memory, if needed in texts.
+- The comma and other separator characters that the BASIC INPUT# instruction recognises should not be used, not in the source code, not in quoted strings. Use the .BY pseudo instruction to store it in memory directly
 
 
 ## The Editor - BASIC Ed aka BED
@@ -245,7 +245,7 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 : append string to end of existing line
 
 `m n+/-(n)`
-: mark lines, n+ from n to eof, n- from sof to n, n+5 from n, mark 5 lines, n-5 marks n and 4 lines above it, inclusive, unmarks marked lines if not provided
+: mark lines, n+ from n to eof, n- from sof to n, n+5 mark n and 4 lines below it, n-5 marks n and 4 lines above it, inclusive, unmarks marked lines if not provided
 
 `d <line number>`
 : delete line at line number, last line if not provided, delete marked lines if marked
