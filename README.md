@@ -169,7 +169,12 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 *Assembly Language Instructions*
 
-Mnemonics of supported instructions can be found in the BASIC program's DATA lines. The following 13 addressing modes are supported, examples show the actual syntax: 
+Mnemonics of supported instructions:
+```
+ADC, AHX, ALR, ANA, ANB, ANC, AND, ARR, ASL, AXS, BCC, BCS, BEQ, BIT, BMI, BNE, BPL, BRK, BVC, BVS, CLC, CLD, CLI, CLV, CMP, CPX, CPY, DCP, DEC, DEX, DEY, EOR, INC, INX, INY, ISC, JMP, JSR, LAS, LAX, LDA, LDX, LDY, LSR, NOP, ORA, PHA, PHP, PLA, PLP, RLA, ROL, ROR, RRA, RTI, RTS, SAX, SBC, SEC, SED, SEI, SHX, SHY, SLO, SRE, STA, STX, STY, TAS, TAX, TAY, TSX, TXA, TXS, TYA, USB, XAA
+```
+
+The following 13 addressing modes are supported, examples show the actual syntax: 
 ```
 1 	clc 		implied
 2 	lsr a 		accumulator
