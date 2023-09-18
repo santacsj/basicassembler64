@@ -218,6 +218,9 @@ BED is a line oriented SEQ text file editor, similar to UNIX's ed.
 
 Unlike screen editors, it uses commands to edit the text, one line at a time. To see the changes, a print command is used, similar to BASIC LIST. Unlike the BASIC editor, line numbers are not part of the text, they are only used to refer to specific lines, no line number management is required.
 
+### Usage
+`LOAD "BAS64.BED??",8:RUN`, where ?? is the latest version number
+
 ### Commands
 
 `l <device>`
