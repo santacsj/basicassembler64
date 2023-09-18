@@ -169,8 +169,6 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 *Assembly Instructions*
 
-List of supported mnemonics can be found near at the end of the BASIC program.
-
 ```
 1 	clc 		implied
 2 	lsa a 		accumulator
@@ -188,3 +186,5 @@ List of supported mnemonics can be found near at the end of the BASIC program.
 12 	lda expr.y	absolute indexed y
 13 	jmp (expr)	indirect
 ```
+
+List of supported mnemonics can be found near at the end of the BASIC program.
