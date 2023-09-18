@@ -63,7 +63,7 @@ MAIN.S
 !incl kernal
 
 @main
-!repeatc @txt 3
+!repeatc @txt.3.
 rts
 
 @txt
