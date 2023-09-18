@@ -118,5 +118,10 @@ The preserve as much memory as possible for the symbols, only the symbol, mnemon
 `.`
 : end of an assembler file, all .A files should terminate with this
 
+EMPTY.S
+```
+*=$033c
+.
+```
 
 
