@@ -123,5 +123,13 @@ EMPTY.S
 *=$033c
 .
 ```
+between the PC start value and End of .A file come the lines of assembler instructions, which can be lines of symbol instruction or assembler instruction.
 
+**Symbol Instructions**
+
+`@symbol=n`
+: create symbol named @symbol with value of n
+
+`@symbol`
+: create symbol named @symbol with value of the currect PC value
 
