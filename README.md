@@ -118,12 +118,12 @@ The preserve as much memory as possible for the symbols, only the symbol, mnemon
 `.`
 : end of an assembler file, all .A files should terminate with this
 
-EMPTY.S
+EMPTY.S:
 ```
 *=$033c
 .
 ```
-between the PC start value and End of .A file come the lines of assembler instructions, which can be lines of symbol instruction or assembler instruction.
+between the PC start value and End of assembler file marker go the lines of instructions, which can be lines of symbol instructions or assembler instructions.
 
 **Symbol Instructions**
 
@@ -132,4 +132,20 @@ between the PC start value and End of .A file come the lines of assembler instru
 
 `@symbol`
 : create symbol named @symbol with value of the currect PC value
+
+**Assembler instructions**
+
+In assembler instructions a rudimentary expression language is supported.
+
+`@*`
+: value of PC, address of the assembly instruction being compiled, read only
+
+`@*+n`, `@*-n`, `@symbol+n`, `@symbol-n`, `n+n` and `n-n`
+: offset by n
+
+`>`, `<`
+: hi/lo byte, can preceed any of the above, has the lowest precedence
+
+
+
 
