@@ -1,4 +1,4 @@
-# BAS64 - BASIC Assembler 64 macro assembler
+# BAS64 - BASIC Assembler 64
 
 BASIC Assembler 64, or BAS64 in short, is a macro assembler for the Commodore 64 written entirely in BASIC V2.
 
