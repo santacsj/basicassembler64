@@ -169,6 +169,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 *Assembly Instructions*
 
+Mnemonics of supported instructions can be found in the BASIC program's DATA lines. The following 13 addressing modes are supported, examples show the actual syntax: 
 ```
 1 	clc 		implied
 2 	lsa a 		accumulator
@@ -187,4 +188,3 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 13 	jmp (expr)	indirect
 ```
 
-List of supported mnemonics can be found near at the end of the BASIC program.
