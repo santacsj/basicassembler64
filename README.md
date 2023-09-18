@@ -92,7 +92,7 @@ rts
 
 The Assembler assembles an already prepared assembler file to a .PRG file on disk. It is a 2 pass symbolic assembler. It supports 77 assembly language instructions (legal and illegal, except for JAM), 13 addressing modes, 4 pseudo instructions, rudimentary expressions and number input in decimal or hexadecimal.
 
-The preserve as much memory as possible for the symbols, only the symbol, mnemonic and opcode tables are stored in memory. Assembled machine code is written immediately to disk.
+Only the symbol, mnemonic and opcode tables are stored in memory to preserve as much memory as possible for the symbols. Assembled machine code is written immediately to disk.
 
 ### Usage
 `LOAD "BAS64.ASS??",8:RUN`, where ?? is the latest version number
@@ -123,7 +123,7 @@ EMPTY.S:
 *=$033c
 .
 ```
-between the PC start value and End of assembler file marker go the lines of instructions, which can be lines of symbol instructions or assembler instructions.
+between the PC start value and end of assembler file marker go the lines of instructions, which can be lines of symbol instructions or assembler instructions, in their own separate lines.
 
 **Symbol Instructions**
 
@@ -131,14 +131,14 @@ between the PC start value and End of assembler file marker go the lines of inst
 : create symbol named @symbol with value of n
 
 `@symbol`
-: create symbol named @symbol with value of the currect PC value
+: create symbol named @symbol with the current value of the PC
 
 **Assembler Expressions**
 
 In assembler instructions a rudimentary expression language is supported.
 
 `@*`
-: value of PC, address of the assembly instruction being compiled, read only
+: the current value of the PC, address of the assembly instruction being compiled, read only
 
 `@*+n`, `@*-n`, `@symbol+n`, `@symbol-n`, `n+n` and `n-n`
 : offset by n
@@ -147,7 +147,7 @@ In assembler instructions a rudimentary expression language is supported.
 : hi/lo byte, can preceed any of the above, has the lowest precedence
 
 `expr`
-: an expression is any combination of the above
+: an expression is any combination of the above 3 or just a number n
 
 **Assembler Instructions**
 
@@ -169,7 +169,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 *Assembly Instructions*
 
-List of supported mnemonics can be found near to the end of the BASIC program.
+List of supported mnemonics can be found near at the end of the BASIC program.
 
 ```
 1 	clc 		implied
