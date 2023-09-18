@@ -156,7 +156,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 *Pseudo Instructions*
 
 `.bl n`
-: a block of n number of zero bytes, can also be used to leave out space in disk
+: a block of n number of zero bytes
 
 `.ii ""`
 : place petscii code of chars inside the quotation marks to disk
@@ -193,7 +193,7 @@ Note: for LSR,ASL,ROR and ROL instructions both accumulator and implied modes ar
 
 The Assembler will stop on errors and print the affected line number and one of the following error codes:
 ```
-1 	No * found at the start of the file
+1 	No *, start of file not found
 2 	Unknown mnemonic
 3 	Unknown addressing mode
 4 	No such addressing mode for mnemonic
@@ -202,4 +202,11 @@ The Assembler will stop on errors and print the affected line number and one of 
 7 	Branch out of range
 ```
 
+### Output
+`PRG`
+: a PRG file with the name of the .A file, extension excluded, `@0:` is used to overwrite file with the same name
 
+### Hints
+
+- Since no * assignment is supported, the .BL pseudo instruction can be used to leave out bytes between instructions
+- The comma and other separator characters that the BASIC INPUT# instruction recognises should not be used, not in the source code, not in quoted string. Use the .BY pseudo intruction to store it in memory, if needed in texts.
