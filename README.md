@@ -210,3 +210,14 @@ The Assembler will stop on errors and print the affected line number and one of 
 
 - Since no * assignment is supported, the .BL pseudo instruction can be used to leave out bytes between instructions
 - The comma and other separator characters that the BASIC INPUT# instruction recognises should not be used, not in the source code, not in quoted string. Use the .BY pseudo intruction to store it in memory, if needed in texts.
+
+
+## The Editor - BASIC Ed aka BED
+
+BED is a line oriented SEQ text file editor, similar to UNIX's ed.
+
+Unlike screen editors, it uses commands to edit the text, one line at a time. To see the changes, a print command is used, similar to BASIC LIST. Unlike the BASIC editor, line numbers are not part of the text, they are only used to refer to specific lines, no line number management is required.
+
+
+
+
