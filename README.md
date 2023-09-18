@@ -88,7 +88,7 @@ rts
 .
 ```
 
-## The Assenbler
+## The Assmnbler
 
 The Assembler assembles an already prepared assembler file to a .PRG file on disk. It is a 2 pass symbolic assembler. It supports 77 assembly language instructions (legal and illegal, except for JAM), 13 addressing modes, 4 pseudo instructions, rudimentary expressions and number input in decimal or hexadecimal.
 
