@@ -59,6 +59,8 @@ bne ?2
 ```
 MAIN.S
 ```
+; main.s
+;
 *=828
 !incl kernal
 
