@@ -167,7 +167,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 `.by expr. ... expr.`
 : place lo byte of the values of dot separated expressions to disk
 
-*Assembly Instructions*
+*Assembly Language Instructions*
 
 Mnemonics of supported instructions can be found in the BASIC program's DATA lines. The following 13 addressing modes are supported, examples show the actual syntax: 
 ```
@@ -190,7 +190,7 @@ Mnemonics of supported instructions can be found in the BASIC program's DATA lin
 
 ### Error Codes
 
-The Assembler will stop on errors and print the affected line and one of the following error codes.
+The Assembler will stop on errors and print the affected line number and one of the following error codes:
 ```
 1 	No * found at the start of the file
 2 	Unknown mnemonic
