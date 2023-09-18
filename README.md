@@ -42,9 +42,9 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : assembler file, a SEQ file with all macros expanded and all comments/whitespaces eliminiated from unquoted text
 
 ### Example
-KERNAL.S:
+REPEAT.S:
 ```
-; kernal.s
+; repeat.s
 ;
 @chrout=$ffd2 ;kernal chrout addr
 
@@ -62,7 +62,7 @@ MAIN.S:
 ; main.s
 ;
 *=828
-!incl kernal
+!incl repeat
 
 @main
 !repeat @txt.3.
