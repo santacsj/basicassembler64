@@ -171,7 +171,7 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 Supported mnemonics/opcodes by addressing modes (1-13, see table below):
 ```
-ADC	  ,   , 69,   , 65, 75,   , 61, 71, 6D, 7D, 79,   
+ADC   ,   , 69,   , 65, 75,   , 61, 71, 6D, 7D, 79,   
 AHX   ,   ,   ,   ,   ,   ,   ,   , 93,   ,   , 9F,   
 ALR   ,   , 4B,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
 ANA   ,   ,  B,   ,   ,   ,   ,   ,   ,   ,   ,   ,   
