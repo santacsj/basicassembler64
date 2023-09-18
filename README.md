@@ -218,6 +218,40 @@ BED is a line oriented SEQ text file editor, similar to UNIX's ed.
 
 Unlike screen editors, it uses commands to edit the text, one line at a time. To see the changes, a print command is used, similar to BASIC LIST. Unlike the BASIC editor, line numbers are not part of the text, they are only used to refer to specific lines, no line number management is required.
 
+### Commands
 
+`l <device>`
+: load SEQ file from device, device will be 8 if not provided
 
+`s <device>`
+: save to a SEQ on device, device will be 8 if not provided
 
+`p <line number>`
+: print 22 lines from line number, or last 22 lines if not provided (if available)
+
+`a <line number>`
+: append new line at line number, last line if not provided
+
+`e <line number>`
+: edit line at line number, last line if not provided, trims lines to max 35 chars
+
+`$`
+: append petscii char to end of existing line
+
+`+`
+: append string to end of existing line
+
+`m n+/-(n)`
+: mark lines, n+ from n to eof, n- from sof to n, n+5 from n, mark 5 lines, inclusive, unmarkes marked lines if not provided
+
+`d <line number>`
+: delete line at line number, last line if not provided, delete marked lines if marked
+
+`c <line number>`
+: copy marked text to line number (above, if exists), if no line number, append to end of text
+
+`n`
+: new, clear memory
+
+`?`
+: print status, free BASIC bytes, number of lines, does GC so might take a while
