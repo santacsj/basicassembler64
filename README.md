@@ -133,7 +133,7 @@ between the PC start value and End of assembler file marker go the lines of inst
 `@symbol`
 : create symbol named @symbol with value of the currect PC value
 
-**Assembler instructions**
+**Assembler Expressions**
 
 In assembler instructions a rudimentary expression language is supported.
 
@@ -146,6 +146,21 @@ In assembler instructions a rudimentary expression language is supported.
 `>`, `<`
 : hi/lo byte, can preceed any of the above, has the lowest precedence
 
+**Assembler Instructions**
 
+Assembler instructions can be pseudo instructions or assembly language instructions.
 
+*Pseudo Instructions*
+
+`.bl n`
+: a block of n zero bytes, can also be used to leave out space in disk/memory
+
+`.ii ""`
+: place petscii code of chars inside the quotation marks to disk
+
+`.sc ""`
+: place screen display code of chars inside the quotation marks to disk
+
+'.by expr. ... expr.'
+	place lo byte of the values of dot separated expressions to disk
 
