@@ -227,7 +227,7 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 : save to a SEQ on device, device will be 8 if not provided
 
 `p <line number>`
-: print 22 lines from line number, or last 22 lines if not provided (if available)
+: print 18 lines from line number, or last 18 lines if not provided (if available), at the top and bottom of the screen `@:` shows the line number of the first/last line shown
 
 `a <line number>`
 : append new line at line number, last line if not provided
