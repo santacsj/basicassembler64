@@ -42,7 +42,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : assembler file, a SEQ file contaning Assembler syntax, with all macros expanded and all comments/whitespaces eliminiated from unquoted text
 
 ### Example
-KERNAL.S
+KERNAL.S:
 ```
 ; kernal.s
 ;
@@ -57,7 +57,7 @@ dex
 bne ?2
 !endm
 ```
-MAIN.S
+MAIN.S:
 ```
 ; main.s
 ;
@@ -71,17 +71,17 @@ rts
 @txt
 .ii "A "
 ```
-MAIN.A
+MAIN.A:
 ```
 *=828
 @chrout=$ffd2
 @main
 lda@txt
 ldx#3
-@m0repeatc02
+@m0repeat02
 jsr@chrout
 dex
-bne@m0repeatc02
+bne@m0repeat02
 rts
 @txt
 .ii"A "
