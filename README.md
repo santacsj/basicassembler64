@@ -23,23 +23,23 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : a comment, everything after `;` is consider a comment, no block comments
 
 `!incl <filename, w/o extension>`
-: include another .S file e.g. `!incl kernal`, single level only
+: include another .S file, single level only
 
 `!defm <macroname>`
-: start macro definition, should be in its own line, single level only
+: start macro definition, should be on its own line, single level only
 
 `?n`
-: inside macro definition, n is [0-9], reference argument number 0 to 9
+: inside macro definition, where n is [0-9], reference argument number 0 to 9
 
 `!endm`
-: end macro definition, should be in its own line
+: end macro definition, should be on its own line
 
 `!<macroname> <a0>.<a1>.<a2>.<a3>.<a4>.<a5>.<a6>.<a7>.<a8>.<a9>`
 : expand macro `macroname` with list of actual args separated by `.`, all args are optional, in case no actual argument provided the Reader generates a unique label for it
 
 ### Output
 `.A`
-: assembler file, a SEQ file contaning Assembler syntax, with all macros expanded and all comments/whitespaces eliminiated from unquoted text
+: assembler file, a SEQ file with all macros expanded and all comments/whitespaces eliminiated from unquoted text
 
 ### Example
 KERNAL.S:
