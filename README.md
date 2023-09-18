@@ -39,7 +39,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 
 ### Output
 `.A`
-: assembler file, a SEQ file with all macros expanded and all comments/whitespaces eliminiated from unquoted text
+: assembler file, a SEQ file with all macros expanded and all comments/whitespaces eliminiated from unquoted text, `@0:` is used to overwrite file with the same name
 
 ### Example
 REPEAT.S:
