@@ -144,7 +144,7 @@ In assembler instructions a rudimentary expression language is supported.
 : offset by n
 
 `>`, `<`
-: hi/lo byte, can preceed any of the above, has the lowest precedence
+: hi/lo byte, can preceed any of the above or just a number n, has the lowest precedence
 
 `expr`
 : an expression is any combination of the above 3 or just a number n
