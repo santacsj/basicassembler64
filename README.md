@@ -305,39 +305,41 @@ Unlike screen editors, it uses commands to edit the text, one line at a time. To
 ### Commands
 
 `l <device>`
-: load SEQ file from device, device will be 8 if not provided, can not load if there is text in memory, use `n`
+: load SEQ file from device, device will be 8 if not provided, load not allowed when there is text in memory, use `n`
 
 `s <device>`
-: save to a SEQ on device, device will be 8 if not provided
+: save to a SEQ file on device, device will be 8 if not provided
 
 `p <line number>`
-: print 18 lines from line number, or last 18 lines if not provided (if available), at the top and bottom of the screen `@:` shows the line number of the first/last line shown
+: print 18 lines from line number, or last 18 lines if not provided, at the top and bottom of the screen `@:` shows the line numbers of the first/last line shown
 
 `a <line number>`
 : append new line at line number, last line if not provided
 
 `e <line number>`
-: edit line at line number, last line if not provided, trims lines to max 35 chars
+: edit line at line number, last line if not provided, trims lines to 35 chars
 
 `$ <line number>`
-: append char by petscii code to end of existing line
+: append char by petscii code to the end of an existing line
 
 `+ <line number>`
-: append string to end of existing line
+: append string to the end of an existing line
 
 `m n+/-(n)`
-: mark lines, n+ from n to eof, n- from sof to n, n+5 mark n and 4 lines below it, n-5 marks n and 4 lines above it, inclusive, unmarks marked lines if not provided
+: mark lines, n+ from n to eof, n- from sof to n, n+5 mark n and 4 lines below it, n-5 marks n and 4 lines above it, unmarks marked lines if not provided
 
 `d <line number>`
 : delete line at line number, last line if not provided, delete marked lines if marked
 
 `c <line number>`
-: copy marked lines to line number (above, if exists), if no line number, append to end of text
+: copy marked lines to line number, append to the end of the text if not provided
 
 `n`
-: new, clear memory
+: new, clear all text from memory
 
 `?`
-: print status, free BASIC bytes, number of lines, does GC so might take a while
+: print free BASIC bytes and number of lines, does GC so might take a while
 
-Note: Empty command repeats the last command, if there was one.
+### Hints
+
+- Last command is not cleared, so pressing Return on an empty command line repeats the last command. It can be used to delete multiple lines, or append at the end of the text while inputting the source code.
