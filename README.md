@@ -28,8 +28,8 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 `!defm <macroname>`
 : start macro definition, should be on its own line, single level only
 
-`?n`
-: inside macro definition, where n is [0-9], reference argument number 0 to 9
+`?a`
+: inside macro definition, where a is [0-9], reference argument number 0 to 9
 
 `!endm`
 : end macro definition, should be on its own line
