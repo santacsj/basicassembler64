@@ -11,7 +11,7 @@ The Reader does text processing. It reads the source file and prepares the assem
 Macro definitions are _not_ stored in memory and only read from disk at expansion time. Meaning, macro definition length does not affect memory usage, only the number of macros does as references to definitions _are_ stored in memory. The limit of number of macros is 32 by default, it's easy to change.
 
 ### Usage
-`LOAD "BAS64.RDR??",8:RUN`, where ?? is the latest version number
+`LOAD "BAS64.RDR*",8:RUN`
 
 ### Input
 `.S`
@@ -20,21 +20,21 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 ### Syntax
 
 `;`
-: a comment, everything after `;` is consider a comment, no block comments
+: a comment, everything after `;` is consider a comment
 
-`!incl <filename, w/o extension>`
+`!incl. <filename, w/o extension>`
 : include another .S file, single level only
 
-`!defm <macroname>`
+`!defm. <macroname>`
 : start macro definition, should be on its own line, single level only
 
 `?a`
-: inside macro definition, where a is [0-9], reference argument number 0 to 9
+: inside macro definition, where `a` is [0-9], reference argument number 0 to 9
 
 `!endm`
 : end macro definition, should be on its own line
 
-`!<macroname> <a0>.<a1>.<a2>.<a3>.<a4>.<a5>.<a6>.<a7>.<a8>.<a9>`
+`!<macroname>. <a0>.<a1>.<a2>.<a3>.<a4>.<a5>.<a6>.<a7>.<a8>.<a9>`
 : expand macro `macroname` with list of actual args separated by `.`, all args are optional, in case no actual argument provided the Reader generates a unique symbol for it, single level only, embedding is not supported
 
 ### Output
@@ -48,13 +48,15 @@ REPEAT.S:
 ;
 @chrout=$ffd2 ;kernal chrout addr
 
-!defm repeat
+!defm. repeat
+[
 lda ?0
 ldx #?1
 ?2
 jsr @chrout
 dex
 bne ?2
+]
 !endm
 ```
 MAIN.S:
@@ -62,10 +64,10 @@ MAIN.S:
 ; main.s
 ;
 *=828
-!incl repeat
+!incl. repeat
 
 @main
-!repeat @txt.3.
+!repeat. @txt. 3.
 rts
 
 @txt
@@ -76,12 +78,14 @@ MAIN.A:
 *=828
 @chrout=$ffd2
 @main
+[
 lda@txt
 ldx#3
-@m0repeat02
+@m0a2e0
 jsr@chrout
 dex
-bne@m0repeat02
+bne@m0a2e0
+]
 rts
 @txt
 .ii"A "
@@ -95,7 +99,7 @@ The Assembler assembles an already prepared assembler file to a .PRG file on dis
 Only the symbol, mnemonic and opcode tables are stored in memory to preserve as much memory as possible for the symbols. Assembled machine code is written immediately to disk.
 
 ### Usage
-`LOAD "BAS64.ASS??",8:RUN`, where ?? is the latest version number
+`LOAD "BAS64.ASS*",8:RUN`
 
 ### Input
 `.A`
@@ -103,51 +107,58 @@ Only the symbol, mnemonic and opcode tables are stored in memory to preserve as 
 
 ### Syntax
 
+**Literals**
+
 `n(nnnn)`
-: a decimal number
+: a decimal number e.g. `42`
 
 `$n(nnn)`
-: a hexadecimal number
+: a hexadecimal number e.g. `$ffe`
 
-`n`
-: a number, decimal or hexadecimal
+`"a(aaa)"`
+: a string
+
+_Note: from here on where `n` is written it means both a decimal or hexadecimal number can be used and `s` means a string._
+
+**The Program Counter**
 
 `*=n`
-: assign PC start value, an .A file should start with this
+: assign PC start value, **all .A files should start with this**
 
 `.`
-: end of an assembler file, all .A files should terminate with this
+: end of an assembler file, **all .A files should terminate with this**
 
-EMPTY.S:
-```
-*=$033c
-.
-```
-between the PC start value and end of assembler file marker go the lines of instructions, which can be lines of symbol instructions or assembler instructions, in their own separate lines.
+Between the PC start value and the end of assembler file marker go the lines of instructions on their own separate lines. Instructions can be symbol instructions or assembler instructions.
 
 **Symbol Instructions**
 
 `@symbol=n`
-: create symbol named @symbol with value of n
+: create symbol with value of n
 
 `@symbol`
-: create symbol named @symbol with the current value of the PC
+: create symbol with value of current PC value
 
-**Assembler Expressions**
+`[` and `]`
+: open/close a lexical closure, every symbol declared within a lexical closure is local to that closure and cannot be referenced from the outside or from another closure, should go on its own line
 
-In assembler instructions a rudimentary expression language is supported.
+**Expressions**
+
+`n`
+: evaluates to the literal value
+
+`@symbol`
+: evaluates to the value of the symbol
 
 `@*`
-: the current value of the PC, address of the assembly instruction being compiled, read only
+: evaluates to the the current value of the PC, the address of the assembly instruction being compiled, **read only**
 
-`@*+n`, `@*-n`, `@symbol+n`, `@symbol-n`, `n+n` and `n-n`
-: offset by n
+`+` or `-`
+: any of the above three can be offseted by a literal `n`, e.g. `40+2`, `@address+1` or `@*-2`
 
 `>`, `<`
-: hi/lo byte, can preceed any of the above or just a number n, has the lowest precedence
+: hi/lo byte, can preceed any of the above, has the lowest precedence e.g. `>@address+2`
 
-`expr`
-: an expression is any combination of the above 3 or just a number n
+_Note: from here on where `expr` is written it means a valid expression according to the above rules._
 
 **Assembler Instructions**
 
@@ -158,13 +169,13 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 `.bl n`
 : a block of n number of zero bytes
 
-`.ii ""`
+`.ii s`
 : place petscii code of chars inside the quotation marks to disk
 
-`.sc ""`
+`.sc s`
 : place screen display code of chars inside the quotation marks to disk
 
-`.by expr. ... expr.`
+`.by expr. expr.`
 : place lo byte of the values of dot separated expressions to disk
 
 *Assembly Language Instructions*
@@ -292,7 +303,6 @@ The Assembler will stop on errors and print the affected line number and one of 
 - Since no * assignment is supported, the .BL pseudo instruction can be used to leave out bytes between instructions
 - The comma and other separator characters that the BASIC INPUT# instruction recognises should not be used, not in the source code, not in quoted strings. Use the .BY pseudo instruction to store it in memory directly
 
-
 ## The Editor - BASIC Ed aka BED
 
 BED is a line oriented SEQ text file editor, similar to UNIX's ed.
@@ -300,7 +310,7 @@ BED is a line oriented SEQ text file editor, similar to UNIX's ed.
 Unlike screen editors, it uses commands to edit the text, one line at a time. To see the changes, a print command is used, similar to BASIC LIST. Unlike the BASIC editor, line numbers are not part of the text, they are only used to refer to specific lines, no line number management is required.
 
 ### Usage
-`LOAD "BAS64.BED??",8:RUN`, where ?? is the latest version number
+`LOAD "BAS64.BED*",8:RUN`
 
 ### Commands
 
