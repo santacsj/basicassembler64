@@ -139,7 +139,7 @@ Between the PC start value and the end of assembler file marker go the lines of 
 : create symbol with value of current PC value
 
 `[` and `]`
-: open/close a lexical closure, every symbol declared within a lexical closure is local to that closure and cannot be referenced from the outside or from another closure, should go on its own line
+: open/close a lexical closure, every symbol declared within a lexical closure is local to that closure and cannot be referenced from the outside or from another closure, should go on its own line, single level only
 
 **Expressions**
 
