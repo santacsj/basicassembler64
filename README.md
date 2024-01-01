@@ -35,7 +35,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : end macro definition, should be on its own line
 
 `!<macroname>. <a0>.<a1>.<a2>.<a3>.<a4>.<a5>.<a6>.<a7>.<a8>.<a9>`
-: expand macro `macroname` with list of actual args separated by `.`, all args are optional, in case no actual argument provided the Reader generates a unique symbol for it, single level only, embedding is not supported
+: expand macro `macroname` with list of actual args separated by `.`, all args are optional, in case no actual argument provided the Reader generates a unique symbol for it, single level only, embedding is not supported. The generated labels look like `m<n>a<n>e<n>` (see example below) where m is the internal index of the macro, a is the index of the argument and e is the count of the expansion of the same macro. Don't use labels like this if you wanna rely on this feature.
 
 ### Output
 `.A`
