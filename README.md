@@ -6,7 +6,7 @@ BAS64 supports all legal and illegal opcodes except for JAM. It is entirely disk
 
 ## The Reader
 
-The Reader does text processing. It reads the source file and prepares the assembler file for the Assembler. It does macro processing, comment, whitespace and empty line eliminiation in unquoted text.
+The Reader does text processing. It reads the source file and prepares the assembler file for the Assembler. It does macro processing, comment, empty line and whitespace eliminiation in unquoted text.
 
 Macro definitions are _not_ stored in memory and only read from disk at expansion time. Meaning, macro definition length does not affect memory usage, only the number of macros does as references to definitions _are_ stored in memory. The limit of number of macros is 32 by default, it's easy to change.
 
