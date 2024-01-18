@@ -20,22 +20,31 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 ### Syntax
 
 `;`
-: a comment, everything after `;` is consider a comment
+: a comment, the `;` char and everything after it are consider comment and will be eliminated during reading
 
-`!incl. <filename, w/o extension>`
-: include another .S file, single level only
+`!string.string.string.`
+: a Reader instruction, starts with `!`, on a new line, followed by 1 to N number of unquoted strings separated by `.`, before evaluation spaces are eliminated so any number of space can be used to separate the strings and commas, but the strings themselves cannot contain spaces, last comma is optional
 
-`!defm. <macroname>`
-: start macro definition, should be on its own line, single level only
+`?n`
+: macro argument reference, where `n` is a number between 0 and 9, only evaluated inside macro definitions
 
-`?a`
-: inside macro definition, where `a` is [0-9], reference argument number 0 to 9
+### Instructions
+
+`!incl.filename`
+: include file named `filename.S`, first arg is the name of the file to be included without extenstion, include is single level only
+
+`!defm.macroname`
+: start definition of macro named `macroname`, first arg is the name of the new macro, macro defs are single level only, no embedded macro definitions are supported, macro names should be unique inside an `.A` assembler file
 
 `!endm`
-: end macro definition, should be on its own line
+: end the current macro definition
 
-`!<macroname>. <a0>.<a1>.<a2>.<a3>.<a4>.<a5>.<a6>.<a7>.<a8>.<a9>`
-: expand macro `macroname` with list of actual args separated by `.`, all args are optional, in case no actual argument provided the Reader generates a unique symbol for it, single level only, embedding is not supported. The generated labels look like `m<n>a<n>e<n>` (see example below) where m is the internal index of the macro, a is the index of the argument and e is the count of the expansion of the same macro. Don't use labels like this if you wanna rely on this feature or enclose the macro internal in a lexical closure (see below).
+`!macroname.a0.a1.a2.a3.a4.a5.a6.a7.a8.a9`
+: expand macro `macroname`, first arg is the name of the macro to be expanded, the following 10 args are optional, macro expansions are single level only, macro expansions inside macro defs are not supported
+
+### Macros
+
+Since macro args 0 to 9 are optional, any arg that is referenced in the macro def but is not provided in the macro expansion instruction will get an automatically generated unique label value that has the pattern `@mIaNeC` where `I` is the macro's internal index, `N` is the number of argument being referenced and `C` is the this macro's expansion count + 1 (see example).
 
 ### Output
 `.A`
