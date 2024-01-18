@@ -40,7 +40,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : end the current macro definition
 
 `!macroname.a0.a1.a2.a3.a4.a5.a6.a7.a8.a9`
-: expand macro `macroname`, first arg is the name of the macro to be expanded, the following 10 args are optional, macro expansions are single level only, macro expansions inside macro defs are not supported
+: expand macro `macroname`, the name of the macro to be expanded is followed by optional 10 args, macro expansions are single level only, macro expansions inside macro defs are not supported
 
 ### Macros
 
