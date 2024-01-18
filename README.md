@@ -90,7 +90,7 @@ MAIN.A:
 [
 lda@txt
 ldx#3
-@m0a2e0
+@m0a9e0
 jsr@chrout
 dex
 bne@m0a9e0
