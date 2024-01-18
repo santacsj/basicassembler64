@@ -80,7 +80,7 @@ MAIN.S:
 rts
 
 @lettera
-.ii "A "
+.ii "a "
 ```
 MAIN.A:
 ```
@@ -97,7 +97,7 @@ bne@m0a9e0
 ]
 rts
 @lettera
-.ii"A "
+.ii"a "
 .
 ```
 
