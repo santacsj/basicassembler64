@@ -23,7 +23,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : a comment, the `;` char and everything after it are consider comment and will be eliminated during reading
 
 `!string.string.string.`
-: a Reader instruction, starts with `!`, on a new line, followed by 1 to N number of unquoted strings separated by `.`, before evaluation spaces are eliminated so any number of space can be used to separate the strings and commas, but the strings themselves cannot contain spaces, last comma is optional
+: a Reader instruction, starts with `!`, on a new line, followed by 1 to N number of unquoted strings separated by `.`, before evaluation spaces are eliminated so any number of space can be used to separate the strings and dots, but the strings themselves cannot contain spaces, last dot is optional
 
 `?n`
 : macro argument reference, where `n` is a number between 0 and 9, only evaluated inside macro definitions
