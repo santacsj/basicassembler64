@@ -76,10 +76,10 @@ MAIN.S:
 !incl. repeat
 
 @main
-!repeat. @txt. 3.times
+!repeat. @lettera. 3.times
 rts
 
-@txt
+@lettera
 .ii "A "
 ```
 MAIN.A:
@@ -88,7 +88,7 @@ MAIN.A:
 @chrout=$ffd2
 @main
 [
-lda@txt
+lda@lettera
 ldx#3
 @m0a9e0
 jsr@chrout
@@ -96,7 +96,7 @@ dex
 bne@m0a9e0
 ]
 rts
-@txt
+@lettera
 .ii"A "
 .
 ```
