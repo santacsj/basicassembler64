@@ -164,7 +164,7 @@ Between the PC start value and the end of assembler file marker go the lines of 
 : evaluates to the value of the symbol
 
 `@*`
-: evaluates to the the current value of the PC, the address of the assembly instruction being compiled, **read only**
+: evaluates to the the current value of the PC, the address of the last byte compiled, **read only**
 
 `+` or `-`
 : any of the above three can be offseted by a literal `n`, e.g. `40+2`, `@address+1` or `@*-2`
