@@ -150,10 +150,7 @@ Between the PC start value and the end of assembler file marker go the lines of 
 : create symbol with value of current PC value
 
 `[` and `]`
-: open/close a lexical closure, every symbol declared as above within a lexical closure is local to that closure and cannot be referenced from the outside or from another closure, should go on its own line, single level only
-
-`@@symbol` or `@@symbol=n`
-: create symbol in the top level scope, ignoring a lexical closure if created inside one, reference it like any other symbol, i.e. `@symbol`
+: open/close a lexical closure, every symbol declared within a lexical closure is local to that closure and cannot be referenced from the outside or from another closure, should go on its own line, single level only
 
 **Expressions**
 
@@ -185,9 +182,6 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 
 `.ii s`
 : place petscii code of chars inside the quotation marks to disk
-
-`.ii expr`
-: convert the decimal value of the expression to a string and place petscii code of chars to disk
 
 `.sc s`
 : place screen display code of chars inside the quotation marks to disk
