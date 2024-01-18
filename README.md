@@ -61,10 +61,10 @@ REPEAT.S:
 [
 lda ?0
 ldx #?1
-?2
+?9
 jsr @chrout
 dex
-bne ?2
+bne ?9
 ]
 !endm
 ```
@@ -76,7 +76,7 @@ MAIN.S:
 !incl. repeat
 
 @main
-!repeat. @txt. 3.
+!repeat. @txt. 3.times
 rts
 
 @txt
@@ -93,7 +93,7 @@ ldx#3
 @m0a2e0
 jsr@chrout
 dex
-bne@m0a2e0
+bne@m0a9e0
 ]
 rts
 @txt
