@@ -44,7 +44,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 
 ### Macros
 
-Macro args can be provided selectively. To provide value for a0, omit a1 and provide value for a2, just put a dot for the arg to be omitted. e.g. `!macroname. $ff. . @sym'
+Macro args can be provided selectively. To provide value for a0, omit a1 and provide value for a2, just put a dot for the arg to be omitted. e.g. `!macroname. $ff. . @sym`
 
 Any macro arg that is referenced in the macro def but is not provided in the macro expansion instruction will get an automatically generated unique label value that has the pattern `@mIaNeC` where `I` is the macro's internal index, `N` is the number of argument being referenced and `C` is this macro's expansion count (see example).
 
