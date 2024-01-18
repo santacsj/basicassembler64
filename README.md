@@ -34,7 +34,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 : include file named `filename.S`, first arg is the name of the file to be included without extenstion, include is single level only
 
 `!defm.macroname`
-: start definition of macro named `macroname`, first arg is the name of the new macro, macro defs are single level only, no embedded macro definitions are supported, macro names should be unique inside an `.A` assembler file
+: start definition of macro named `macroname`, first arg is the name of the new macro, macro defs are single level only, no embedded macro definitions are supported, macro names should be unique across all files, main and includes
 
 `!endm`
 : end the current macro definition
