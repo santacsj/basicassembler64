@@ -61,8 +61,8 @@ REPEAT.S:
 
 !defm. repeat
 [
-lda ?0
-ldx #?1
+lda ?1
+ldx #?2
 ?9
 jsr @chrout
 dex
@@ -78,10 +78,10 @@ MAIN.S:
 !incl. repeat
 
 @main
-!repeat. @lettera. 3.times
+!repeat. letter. @a. 3.times
 rts
 
-@lettera
+@a
 .ii "a "
 ```
 MAIN.A:
@@ -90,7 +90,7 @@ MAIN.A:
 @chrout=$ffd2
 @main
 [
-lda@lettera
+lda@a
 ldx#3
 @m0a9e0
 jsr@chrout
@@ -98,7 +98,7 @@ dex
 bne@m0a9e0
 ]
 rts
-@lettera
+@a
 .ii"a "
 .
 ```
