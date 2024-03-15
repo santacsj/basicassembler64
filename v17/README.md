@@ -2,7 +2,7 @@
 
 BASIC Assembler 64, or BAS64 in short, is a macro assembler for the Commodore 64 written entirely in BASIC V2.
 
-BAS64 supports all legal and illegal opcodes except for JAM. It is entirely disk based, only lookup tables are stored in memory. The package also contains a line oriented SEQ file editor to edit source code, but any other SEQ file editor can be used of course e.g. Kwik Write! by Fairlight!.
+BAS64 supports all legal and illegal opcodes except for JAM. It is entirely disk based, only lookup tables are stored in memory. The package also contains a line oriented SEQ file editor to edit source code, but any other SEQ file editor can be used, of course e.g. Kwik Write! by Fairlight!.
 
 ## The Reader
 
@@ -46,7 +46,7 @@ Macro definitions are _not_ stored in memory and only read from disk at expansio
 
 Any macro arg that is referenced in the macro def but is not provided in the macro expansion instruction will get an automatically generated unique label value that has the pattern `@mIaNeC` where `I` is the macro's internal index, `N` is the number of argument being referenced and `C` is this macro's expansion count (see example).
 
-Macro args can be provided selectively. To provide value for a0, omit a1 and provide value for a2, just put a dot for the arg to be omitted: `!macroname. $ff. . @sym`. Here the omitted arg a1 will get an automatically generated label value as described above.
+Macro args can be provided selectively. To provide value for a0, omit a1 and provide value for a2, just put a dot for the arg to be omitted. e.g. `!macroname. $ff. . @sym`. Here the omitted arg will get an automatically generated label value as described above.
 
 ### Output
 `.A`
@@ -167,7 +167,7 @@ Between the PC start value and the end of assembler file marker go the lines of 
 : evaluates to the the current value of the PC, the address of the last byte compiled, **read only**
 
 `+` or `-`
-: any of the above three can be offseted by a literal `n`, e.g. `40+2`, `@address+1` or `@*-2`, this is _not_ addition, just an offset and an offset cannot be offsetted, meaning for example 40+2+2 is not valid
+: any of the above three can be offseted by a literal `n`, e.g. `40+2`, `@address+1` or `@*-2`
 
 `>`, `<`
 : hi/lo byte, can preceed any of the above, has the lowest precedence e.g. `>@address+2`
@@ -184,16 +184,16 @@ Assembler instructions can be pseudo instructions or assembly language instructi
 : a block of n number of zero bytes
 
 `.ii s`
-: place the petscii code of the chars inside the quotation marks to disk
+: place petscii code of chars inside the quotation marks to disk
 
 `.ii expr`
-: convert the decimal value of the expression to a string and place the petscii code of its chars to disk
+: convert the decimal value of the expression to a string and place petscii code of chars to disk
 
 `.sc s`
-: place the screen display code of the chars inside the quotation marks to disk
+: place screen display code of chars inside the quotation marks to disk
 
 `.by expr. expr.`
-: place the lo byte of the values of dot separated expressions to disk
+: place lo byte of the values of dot separated expressions to disk
 
 *Assembly Language Instructions*
 
